@@ -50,12 +50,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
-// struct sockaddr_in
-// {
-//   short int sin_family; //address family (AF_INET, AF_INET6)
-//   unsigned short int sin_port; //htons()
-//   struct in_addr sin_addr; 
-//   unsigned char sin_zero[8];
-
-// };
