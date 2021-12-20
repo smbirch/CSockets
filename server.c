@@ -1,11 +1,14 @@
 #include <stdio.h>
+#include <string.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
     int socket_desc, new_socket, c;
     struct sockaddr_in server, client;
+    char *message;
 
     //Create socket
     socket_desc = socket(AF_INET, SOCK_STREAM, 0);
@@ -40,6 +43,10 @@ int main(int argc, char *argv[])
     }
 
     puts ("Connection accepted\n");
+
+    // Reply to client
+    message = "Hello Client! Your connection has been received, but I have to go now. Goodbye\n";
+    write(new_socket, message, strlen(message));
 
     return 0;
 
